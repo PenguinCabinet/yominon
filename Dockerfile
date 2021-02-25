@@ -13,7 +13,7 @@ RUN apt install curl -y
 
 RUN apt install npm -y
 
-RUN npm config set strict-ssl false
+RUN npm config set strict-ssl false co
 
 RUN npm install n -g
 
@@ -23,8 +23,6 @@ RUN apt purge -y nodejs npm
 RUN node -v
 
 RUN npm install discord.js node-opus opusscript
-
-COPY ./src/ /
 
 WORKDIR /
 
@@ -40,6 +38,9 @@ RUN unzip model.zip
 
 RUN ls
 
+RUN npm i co
+
+COPY ./src/ /
 
 CMD ["node","main.js"]
 
