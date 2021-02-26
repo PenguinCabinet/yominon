@@ -41,10 +41,12 @@ RUN ls
 RUN npm i co
 
 ADD ./src/ /src
-RUN echo "こんにちは" | open_jtalk \
-         -x /var/lib/mecab/dic/open-jtalk/naist-jdic/ \
-         -m /usr/share/hts-voice/nitech-jp-atr503-m001/nitech_jp_atr503_m001.htsvoice \
-         -ow sample.wav
 
-CMD ["node","src/main.js"]
+#RUN mount -t tmpfs -o size=256m /dev/shm /tmp_ram
+
+RUN mkdir /temp_ram
+
+RUN echo "mount -t tmpfs -o size=256m /dev/shm /temp_ram ;node src/main.js" > run.sh
+
+CMD ["bash","run.sh"]
 

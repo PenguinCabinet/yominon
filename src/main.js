@@ -46,7 +46,7 @@ async function make_voice(text,id){
 	let run_f=async function(){
 		return new Promise((resolve)=>{
     			let open_jtalk=exec(
-		    		`open_jtalk -m /MMDAgent_Example-1.8/Voice/mei/mei_normal.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow temp${id}.mp3`,
+		    		`open_jtalk -m /MMDAgent_Example-1.8/Voice/mei/mei_normal.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
 				{env:process.env}
 	    		);
 
@@ -119,7 +119,7 @@ client.on('message', message =>
 		make_voice_tasks.push(async function(){
         		await make_voice(message.content,make_voice_task_id_now)
 				
-       			const dispatcher = connection.play(`temp${make_voice_task_id_now}.mp3`);
+       			const dispatcher = connection.play(`/temp_ram/temp${make_voice_task_id_now}.mp3`);
 			return message.content.length
 		});
 		
