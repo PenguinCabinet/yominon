@@ -40,7 +40,7 @@ RUN ls
 
 RUN npm i co
 
-COPY ./src/ /
+ADD ./src/ /src
 
-CMD ["node","main.js"]
+CMD ["node","src/main.js"]
 

@@ -1,0 +1,9 @@
+version: '3'
+services:
+  bot:
+    build: .
+    restart: always
+    environment: 
+        BOT_KEY: ${yominon_BOT_KEY:-default} #"<DISCORD_BOT_KEY>"
+    volumes: 
+    - ./src:/src

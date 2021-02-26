@@ -56,9 +56,10 @@ client.on('message', message =>
 	//console.log(message.content);
 	//console.log(message.content==".join");
 	//console.log(message.member.voice.channel);
-    if (message.content==".join" /*&& message.member.voice.channel && connection==null*/)
+    if (message.content==".join" && message.member.voice.channel /* && connection==null*/)
     {
-	console.log("TRUE1");
+	//console.log(message.member.voice.channel);
+	console.log("join the voice channel");
         message.member.voice.channel.join().then( connection2 => {
            connection=connection2;
         })
@@ -94,7 +95,7 @@ client.on('message', message =>
 
 client.login(process.env.BOT_KEY);
 
-console.log("software started");
+console.log("software started test");
 console.log(process.env.BOT_KEY);
 
 
