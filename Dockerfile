@@ -38,15 +38,18 @@ RUN unzip model.zip
 
 RUN ls
 
-RUN npm i co
+#RUN npm i co
 
 ADD ./src/ /src
 
-#RUN mount -t tmpfs -o size=256m /dev/shm /tmp_ram
 
 RUN mkdir /temp_ram
 
-RUN echo "mount -t tmpfs -o size=256m /dev/shm /temp_ram ;node src/main.js" > run.sh
+RUN echo "mount -t tmpfs -o size=\$TEMP_RAM_SIZE /dev/shm /temp_ram ;node src/main.js" > run.sh
+
+#RUN echo $BOT_KEY
+
+#RUN echo "mount -t tmpfs -o size=\$TEMP_RAM_SIZE /dev/shm /temp_ram ;node src/main.js" 
 
 CMD ["bash","run.sh"]
 

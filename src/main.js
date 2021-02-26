@@ -59,7 +59,7 @@ async function make_voice(text,id){
 			let is_command_end=false;
 
 			open_jtalk.on("close",(code)=>{
-				console.log("close");
+				console.log("generated  voice file");
 				is_command_end=true;
 				resolve();
 			});
@@ -87,7 +87,7 @@ var connection=null
 
 client.on('disconnect',message=>
 {
-	console.log("disconnect");
+	console.log("Disconnect");
 	connection=null;
 });
 
@@ -135,7 +135,7 @@ client.on('message', message =>
 client.login(process.env.BOT_KEY);
 
 console.log("software started test");
-console.log(process.env.BOT_KEY);
+//console.log(process.env.BOT_KEY);
 
 
 //make_voice_tasks_run1=make_voice_tasks_run();
@@ -144,6 +144,9 @@ console.log(process.env.BOT_KEY);
 //setInterval(function(){make_voice_tasks_run1.next();}, 100);
 
 
-var co = require('co');
+//var co = require('co');
 
-co(make_voice_tasks_run);
+//co(make_voice_tasks_run);
+
+make_voice_tasks_run();
+
