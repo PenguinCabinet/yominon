@@ -15,7 +15,7 @@ vim docker-compose.yml #You write your discord bot key in BOT_KEY of environment
 docker-compose up
 ```
 
-Please give Yominon the authority appropriately.
+Please [make the key of the Discord bot](http://discord.com/developers/) and give Yominon the authority appropriately.
 
 #  How to use
 
