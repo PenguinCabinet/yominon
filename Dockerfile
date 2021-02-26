@@ -13,7 +13,7 @@ RUN apt install curl -y
 
 RUN apt install npm -y
 
-RUN npm config set strict-ssl false co
+RUN npm config set strict-ssl false
 
 RUN npm install n -g
 
@@ -39,6 +39,8 @@ RUN unzip model.zip
 RUN ls
 
 #RUN npm i co
+RUN npm i fluent-ffmpeg
+
 
 ADD ./src/ /src
 

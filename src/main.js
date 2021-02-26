@@ -12,6 +12,10 @@ var make_voice_tasks=[];
 
 const worker = require('worker_threads');
 
+var ffmpegmeta = require('fluent-ffmpeg')//.Metadata;
+
+let send_voice_loss_time=500;
+
 async function wait(time) {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -29,8 +33,24 @@ async function make_voice_tasks_run(){
 			continue;
 		}
 		//console.log("TRUE----");
-		let n=await make_voice_tasks.shift()();
-		await wait(1000+100*n);
+		let id=await make_voice_tasks.shift()();
+
+		let run_f=async function(){
+			return new Promise((resolve)=>{
+
+				ffmpegmeta.ffprobe(`/temp_ram/temp${id}.mp3`, function(err,metadata) {
+  					//console.log(require('util').inspect(metadata, false, null));
+					console.log(metadata.format.duration);
+					let wait_time=metadata.format.duration;
+					resolve(wait_time);
+				});
+			})
+		};
+
+		let wait_time=await run_f();
+
+		
+		await wait(send_voice_loss_time+1000*wait_time);
 	}
 }
 
@@ -120,7 +140,8 @@ client.on('message', message =>
         		await make_voice(message.content,make_voice_task_id_now)
 				
        			const dispatcher = connection.play(`/temp_ram/temp${make_voice_task_id_now}.mp3`);
-			return message.content.length
+			//return message.content.length
+			return make_voice_task_id_now;
 		});
 		
 
@@ -141,12 +162,8 @@ console.log("software started test");
 //make_voice_tasks_run1=make_voice_tasks_run();
 
 
-//setInterval(function(){make_voice_tasks_run1.next();}, 100);
 
 
-//var co = require('co');
-
-//co(make_voice_tasks_run);
 
 make_voice_tasks_run();
 
