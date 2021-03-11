@@ -70,22 +70,25 @@ async function make_voice(text,id){
 	    {stdio:text}
     );*/
 
-	text=text.replace(/[^0-9a-zA-Z亜-熙ぁ-んァ-ヶ]/g, '');
+	//text=text.replace(/^([0-9a-zA-Z]|[\u3400-\u4DBF\u4E00-\u9FFF\uF900-\uFAFF]|[\uD840-\uD87F][\uDC00-\uDFFF]|[ぁ-んァ-ヶ])/g, '');
+	
+	text=text.replace(/\p{Emoji_Modifier_Base}\p{Emoji_Modifier}?|\p{Emoji_Presentation}|\p{Emoji}\uFE0F/g, '');
 	console.log(text);
 	
 	let run_f=async function(){
 		return new Promise((resolve)=>{
-    			/*
+    			
 			let open_jtalk=exec(
 		    		`open_jtalk -m /MMDAgent_Example-1.8/Voice/mei/mei_normal.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
 				{env:process.env}
 	    		);
-			*/
-
+		
+			/*
     			let open_jtalk=exec(
-		    		`open_jtalk  -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
+		    		`open_jtalk -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
 				{env:process.env}
 	    		);
+		*/
 
 			open_jtalk.stdout.pipe(process.stdout);
 
