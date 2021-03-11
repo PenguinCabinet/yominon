@@ -40,6 +40,13 @@ async function make_voice_tasks_run(){
 
 				ffmpegmeta.ffprobe(`/temp_ram/temp${id}.mp3`, function(err,metadata) {
   					//console.log(require('util').inspect(metadata, false, null));
+					console.log(metadata)
+					if(metadata===undefined){
+						resolve(0);
+						return;
+					}
+					//if(!metadata.hasOwnProperty("format"))resolve(0);
+					//console.log(metadata.format);
 					console.log(metadata.format.duration);
 					let wait_time=metadata.format.duration;
 					resolve(wait_time);
@@ -62,11 +69,21 @@ async function make_voice(text,id){
 	    `open_jtalk -m /MMDAgent_Example-1.8/Voice/mei/mei_normal.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow temp${id}.mp3`,
 	    {stdio:text}
     );*/
+
+	text=text.replace(/[^0-9a-zA-Z亜-熙ぁ-んァ-ヶ]/g, '');
+	console.log(text);
 	
 	let run_f=async function(){
 		return new Promise((resolve)=>{
-    			let open_jtalk=exec(
+    			/*
+			let open_jtalk=exec(
 		    		`open_jtalk -m /MMDAgent_Example-1.8/Voice/mei/mei_normal.htsvoice -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
+				{env:process.env}
+	    		);
+			*/
+
+    			let open_jtalk=exec(
+		    		`open_jtalk  -x /var/lib/mecab/dic/open-jtalk/naist-jdic -ow /temp_ram/temp${id}.mp3`,
 				{env:process.env}
 	    		);
 
