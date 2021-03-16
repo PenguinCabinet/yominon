@@ -11,11 +11,19 @@ Yominon is the bot reading aloud the text messages on the the voice channel for 
 ```bash
 git clone https://github.com/pengincoalition/yominon
 cd yominon
-vim docker-compose.yml #You write your discord bot key in BOT_KEY of environment variables.
-docker-compose up
+vim docker-compose.yml #You write your discord bot key in BOT_KEY of environment variables in this file.
+#Or you use "export yominon_BOT_KEY=<your discord bot key>".
+docker-compose up -d
 ```
 
 Please [make the key of the Discord bot](http://discord.com/developers/) and give Yominon the authority appropriately.
+```
+The needed authority for Yominon.
+* Connect voice channels.
+* Speak in voice channels.
+* Read messages in text channels.
+* See channels.
+```
 
 #  How to use
 
