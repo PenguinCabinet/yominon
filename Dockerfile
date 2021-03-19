@@ -42,7 +42,7 @@ RUN ls
 RUN npm i fluent-ffmpeg
 
 
-ADD ./src/ /src
+#ADD ./src/ /src
 
 
 RUN mkdir /temp_ram

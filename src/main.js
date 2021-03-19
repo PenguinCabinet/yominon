@@ -29,7 +29,8 @@ async function make_voice_tasks_run(){
 		//console.log(make_voice_tasks.length);
 		if(make_voice_tasks.length==0)
 		{
-			await wait(100);
+			await wait(1);
+			//yield "";
 			continue;
 		}
 		//console.log("TRUE----");
