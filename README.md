@@ -9,7 +9,7 @@ Yominon is the bot reading aloud the text messages on the the voice channel for 
 
 # Quick strat
 ```bash
-git clone https://github.com/pengincoalition/yominon
+git clone https://github.com/PenguinCabinet/yominon
 cd yominon
 vim docker-compose.yml #You write your discord bot key in BOT_KEY of environment variables in this file.
 #Or you use "export yominon_BOT_KEY=<your discord bot key>".
