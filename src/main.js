@@ -124,16 +124,17 @@ client.once('ready', () => {
     console.log('Ready');
 });
 
-var connection=null
+var connection={}
 
 client.on('disconnect',message=>
 {
 	console.log("Disconnect");
-	connection=null;
+	connection[message.guild.id]=null;
 });
 
 client.on('message', message =>
 {
+	message.G
 	//console.log("TRUE0");
 	//console.log(message.content);
 	//console.log(message.content==".join");
@@ -143,24 +144,24 @@ client.on('message', message =>
 	//console.log(message.member.voice.channel);
 	console.log("join the voice channel");
         message.member.voice.channel.join().then( connection2 => {
-           connection=connection2;
+           connection[message.guild.id]=connection2;
         })
         .catch(console.log);
     }else if (message.content==".bye")
     {
-        if(connection!=null){
-            connection.disconnect();
-            connection=null;
+        if(connection[message.guild.id]!=null){
+            connection[message.guild.id].disconnect();
+            connection[message.guild.id]=null;
         }
     }else{
-        if(connection!=null){
+        if(connection[message.guild.id]!=null){
 		//console.log("TRUE4");
 		let make_voice_task_id_now=make_voice_task_id;
 		
 		make_voice_tasks.push(async function(){
         		await make_voice(message.content,make_voice_task_id_now)
 				
-       			const dispatcher = connection.play(`/temp_ram/temp${make_voice_task_id_now}.mp3`);
+       			const dispatcher = connection[message.guild.id].play(`/temp_ram/temp${make_voice_task_id_now}.mp3`);
 			//return message.content.length
 			return make_voice_task_id_now;
 		});
