@@ -5,7 +5,7 @@ Yominon is the bot reading aloud the text messages on the the voice channel for 
 * Yominon is on premises and OSS.
 * Yominon use Docker and deploy easily.
 * Yominon don't require cloud services.
-* Yominon can also run on Raspberry Pi. 
+* Yominon can also run on Raspberry Pi(NOT supported ARMv6). 
 
 # Quick strat
 ```bash
