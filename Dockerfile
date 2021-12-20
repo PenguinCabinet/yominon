@@ -22,7 +22,7 @@ RUN n stable
 RUN apt purge -y nodejs npm
 RUN node -v
 
-RUN npm install discord.js@12.0 node-opus opusscript
+#RUN npm install discord.js@12.0 node-opus opusscript
 
 WORKDIR /
 
@@ -39,7 +39,10 @@ RUN unzip model.zip
 RUN ls
 
 #RUN npm i co
-RUN npm i fluent-ffmpeg
+#RUN npm i fluent-ffmpeg
+RUN apt install python3 -y
+COPY ./package.json .
+RUN npm install 
 
 
 #ADD ./src/ /src
