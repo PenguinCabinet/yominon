@@ -1,40 +1,42 @@
+[English README](./README_en.md)
 # Yominon
-Yominon is the bot reading aloud the text messages on the the voice channel for Discord.
+よみのんはOSSのDiscord読み上げBotです。
 
-# Features
-* Yominon is on premises and OSS.
-* Yominon use Docker and deploy easily.
-* Yominon don't require cloud services.
-* Yominon can also run on Raspberry Pi(NOT supported ARMv6). 
+# 特徴
+* よみのんはオンプレミス環境で動作しOSSです。
+* よみのんはDockerを利用しているため、簡単にデプロイできます
+* よみのんはクラウドサービスを利用していません
+* よみのんはラズパイ上で動作することができます(ARMv6はサポートしていません)
 
 # Quick strat
 ```bash
 git clone https://github.com/PenguinCabinet/yominon
 cd yominon
-vim docker-compose.yml #You write your discord bot key in BOT_KEY of environment variables in this file.
-#Or you use "export yominon_BOT_KEY=<your discord bot key>".
+vim docker-compose.yml 
+# docker-compose.ymlの環境変数のBOT_KEYに開発者ページで作成したDiscord BotのKeyを入力してください
+#もしくはホストOS上で"export yominon_BOT_KEY=<your discord bot key>"を実行します
 docker-compose up -d
 ```
 
-Please [make the key of the Discord bot](http://discord.com/developers/) and give Yominon the authority appropriately.
+[Discordの開発者ページ](http://discord.com/developers/)にアクセスしてBotを作成したのち、よみのんに適切な権限を与えてください.
 ```
-The needed authority for Yominon.
-* Connect voice channels.
-* Speak in voice channels.
-* Read messages in text channels.
-* See channels.
+よみのんに必要な権限
+* メッセージを読む
+* メッセージの履歴を読む
+* ボイスチャンネルへの接続
+* 発言
 ```
 
-#  How to use
+#  使い方
 
-1. Yourself join in the voice channel.
-2. You write ".join" on any text channel Yominon can read.
-3. Yominon join in the voice channel same with you.
-4. Yominon read aloud new text message on any text channel Yominon can read.
-5. Yominon exit on the voice channel when someone write ".bye" on any text channel Yominon can read.
+1. あなたがボイスチャンネルに接続する
+2. よみのんが読むことのできる適切なテキストチャンネルに".join"と入力する
+3. よみのんがあなたと同じボイスチャンネルに参加します
+4. よみのんがよみのんが読むことのできるテキストチャンネルで書き込まれたテキストを読み上げます
+5. よみのんを退出させたい場合、".bye"と入力します
 
 
-# Used softwares.
+# よみのんに使用しているソフトウェア
 
 ```
 open jtalk
