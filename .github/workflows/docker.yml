@@ -26,5 +26,5 @@ jobs:
           buildx-version: latest
           qemu-version: latest
       - name: Build image
-        run: docker buildx build -t docker.pkg.github.com/${repository_name}/${IMAGE_NAME}:${IMAGE_TAG} --file Dockerfile . --platform linux/arm/v7,linux/amd64 --push
+        run: docker buildx build -t ghcr.io/${repository_name}/${IMAGE_NAME}:${IMAGE_TAG} --file Dockerfile . --platform linux/arm/v7,linux/amd64 --push
 
