@@ -20,7 +20,7 @@ RUN npm install n -g
 RUN n stable
 
 RUN apt purge -y nodejs npm
-RUN node -v
+#RUN node -v
 
 #RUN npm install discord.js@12.0 node-opus opusscript
 
