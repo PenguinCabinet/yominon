@@ -27,8 +27,4 @@ jobs:
           qemu-version: latest
       - name: Build image
         run: docker buildx build -t docker.pkg.github.com/${repository_name}/${IMAGE_NAME}:${IMAGE_TAG} --file Dockerfile . --platform linux/arm/v7,linux/amd64 --push
-    """
-      - name: Push image to GitHub Registry
-        run: docker push docker.pkg.github.com/${repository_name}/${IMAGE_NAME}:${IMAGE_TAG}
-    """
 
