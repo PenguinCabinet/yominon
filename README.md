@@ -12,6 +12,16 @@
 
 ## よみのんの構築(推奨方法)
 
+```bash
+mkdir yominon
+cd yominon
+curl 
+vim docker-compose.yml 
+# docker-compose.ymlの環境変数のBOT_KEYに開発者ページで作成したDiscord BotのKeyを入力してください
+#もしくはホストOS上で"export yominon_BOT_KEY=<your discord bot key>"を実行します
+docker-compose up -d
+```
+
 ## よみのんの構築(ほかのやりかた)
 
 自前でビルドするため、時間がかかります
