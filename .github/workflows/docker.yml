@@ -19,6 +19,12 @@ jobs:
 
       - name: Login GitHub Registry
         run: echo ${{ secrets.GITHUB_TOKEN }} | docker login docker.pkg.github.com -u owner --password-stdin
+      - name: Set up Docker Buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v3
+        with:
+          buildx-version: latest
+          qemu-version: latest
       - name: Build image
         run: docker buildx build -t docker.pkg.github.com/${repository_name}/${IMAGE_NAME}:${IMAGE_TAG} --file Dockerfile . --platform linux/arm/v7,linux/amd64,linux/386
 
