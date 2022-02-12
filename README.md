@@ -1,5 +1,5 @@
 [English README](./README_en.md)
-# Yominon
+# よみのん
 よみのんはOSSのDiscord読み上げBotです
 
 # 特徴
