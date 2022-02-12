@@ -9,6 +9,10 @@
 * よみのんはラズパイ上で動作することができます(ARMv6はサポートしていません)
 
 # Quick strat
+
+## よみのんの構築(推奨方法)
+
+## よみのんの構築(ほかのやりかた)
 ```bash
 git clone https://github.com/PenguinCabinet/yominon
 cd yominon
@@ -17,6 +21,8 @@ vim docker-compose.yml
 #もしくはホストOS上で"export yominon_BOT_KEY=<your discord bot key>"を実行します
 docker-compose up -d
 ```
+
+## Botの作成
 
 [Discordの開発者ページ](http://discord.com/developers/)にアクセスしてBotを作成したのち、よみのんに適切な権限を与えてください
 ```
