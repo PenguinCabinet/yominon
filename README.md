@@ -13,6 +13,9 @@
 ## よみのんの構築(推奨方法)
 
 ## よみのんの構築(ほかのやりかた)
+
+自前でビルドするため、時間がかかります
+
 ```bash
 git clone https://github.com/PenguinCabinet/yominon
 cd yominon
