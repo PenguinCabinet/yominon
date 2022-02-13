@@ -15,7 +15,7 @@
 ```bash
 git clone https://github.com/PenguinCabinet/yominon
 cd yominon
-vim docker-compose.yml 
+vim docker-compose-exampl.yml 
 # docker-compose-example.ymlの環境変数のBOT_KEYに開発者ページで作成したDiscord BotのKeyを入力してください
 #もしくはホストOS上で"export yominon_BOT_KEY=<your discord bot key>"を実行します
 docker-compose -f docker-compose-example.yml up -d
