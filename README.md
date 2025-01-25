@@ -2,9 +2,6 @@
 # よみのん
 よみのんはOSSのDiscord読み上げBotです
 
-# 稼働中のクラウド版
-[招待リンク](https://discord.com/api/oauth2/authorize?client_id=982630933138141195&permissions=3148800&scope=bot)   
-無保証・自己責任で導入してください。
 
 # 特徴
 * よみのんはオンプレミス環境で動作しOSSです
